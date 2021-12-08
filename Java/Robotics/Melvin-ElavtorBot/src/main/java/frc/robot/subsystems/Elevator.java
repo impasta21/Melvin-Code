@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 import edu.wpi.first.wpilibj.XboxController;
@@ -13,17 +14,22 @@ import frc.robot.Constants;
 public class Elevator extends SubsystemBase {
   private TalonFX ElevatorRight;
   private TalonFX ElevatorLeft;
-
-  private XboxController DriverController; 
+  public XboxController DriverController = new XboxController(Constants.DriverController_);
+  //private LimitSwitchNormal LimitSwitch = new LimitSwitchNormal(false);
+   
   /** Creates a new Elevator. */
   public Elevator() {
     ElevatorLeft = new TalonFX(Constants.MotorElevatorLeft_);
     ElevatorRight = new TalonFX(Constants.MotorElevatorRight_);
   }
-  public double GetControllerAxis(int Axis) {
-    return DriverController.getRawAxis(Axis);
+  public double GetControllerTrigger(int Trigger) {
+    return DriverController.getRawAxis(Trigger);
   }
-
+  public void Move(double speed) {
+    ElevatorLeft.set(ControlMode.PercentOutput, speed);
+    ElevatorRight.set(ControlMode.PercentOutput, speed);
+  }
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

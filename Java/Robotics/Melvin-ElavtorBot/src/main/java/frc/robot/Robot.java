@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 //import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.DriveControl;
+import frc.robot.commands.ElevatorControl;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Elevator;
 
 
 /**
@@ -21,9 +23,10 @@ import frc.robot.subsystems.DriveTrain;
 public class Robot extends TimedRobot {
   public static DriveTrain drivetrain = new DriveTrain();
   public static DriveControl driveControl = new DriveControl();
+  public static Elevator elevator = new Elevator();
+  public static ElevatorControl elevatorControl = new ElevatorControl();
 
   private RobotContainer m_robotContainer;
-  
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.

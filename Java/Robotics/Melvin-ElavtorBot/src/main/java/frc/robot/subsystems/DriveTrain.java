@@ -39,9 +39,6 @@ public class DriveTrain extends SubsystemBase {
     MotorBackR.setInverted(false);
     MotorBackR.follow(MotorFrontR);
     
-    //Drive
-    DriverController = new XboxController(Constants.DriverController_);
-    
     //drive = new DifferentialDrive(MotorFrontL, MotorFrontR);
   }
   public double GetControllerAxis(int Axis) {
